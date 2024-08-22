@@ -1,1 +1,1 @@
-## This is a python script for Genshin Impact. It can output game files with direct links for downloads.
+## This is a python script for Genshin Impact. It can output game files with direct links for downloads.The links are generated in a txt file.
