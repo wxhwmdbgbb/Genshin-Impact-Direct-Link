@@ -1,8 +1,8 @@
 import requests,jsonpath,os
-
-# 存储链接文本
+url = 'https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGamePackages?launcher_id=VYTpXlbWo8'
+# save links
 def save_links(filename, data, version):
-    # 分割字符串，使每个连接单独成行
+    # split strings
     data = str(data).replace(',',',\n')
     data = data.replace('[','')
     data = data.replace(']','')
@@ -24,12 +24,12 @@ def save_links(filename, data, version):
         file.write("There is no " + version + " version!!!")
     tempfile.close()
     file.close()
-    # 删除临时文本
+    # delete temporary file
     os.remove('./tempfile.txt')
     print("The file was saved successfully! Please review link.txt documents.")
 
-res = requests.get('https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGamePackages?launcher_id=VYTpXlbWo8')
-# 提取下载连接
+res = requests.get(url)
+# extract the download links
 data = jsonpath.JSONPath("$..game_packages..url").parse(res.json())
 version = input("Please input game version:")
 # save file data
