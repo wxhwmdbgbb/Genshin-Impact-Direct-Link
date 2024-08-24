@@ -12,6 +12,9 @@ class GenshinApplication(Frame):
         self.master = master
         self.pack()
         self.createWidget()
+        self.resok = False
+        self.showtext = Text(self.master, autoseparators=False, exportselection=True)
+        self.showtext.place(anchor="center", width=800, height=480, relx=0.5, rely=0.5)
 
     def createWidget(self):
 
@@ -42,29 +45,36 @@ class GenshinApplication(Frame):
 
     def showlinks(self):
         self.links = ""
+        output = open("./output.txt", "w")
         if self.entry1.get():
             self.requestlinks()
             fp = open("./resdata.txt", "r")
             for line in fp.readlines():
                 if self.entry1.get() in line:
                     self.links = self.links + line
+            fp.close()
             if self.links:
-                lastversion = open("./lastversion.txt", "w")
-                lastversion.write(self.links)
-                lastversion.close()
+                output.write(self.links)
+                output.close()
             else:
                 self.links = "There is no " + self.entry1.get() + " version !!!"
-                lastversion = open("./lastversion.txt", "w")
-                lastversion.write("")
-                lastversion.write(self.links)
-                lastversion.close()
+                output.write("")
+                output.write(self.links)
+                output.close()
+
         else:
-            print("error")
+            output.write("error")
+            output.close()
+        output = open("./output.txt", "r")
+        self.showtext.delete("1.0", END)
+        self.showtext.insert("insert", output.read())
+        print(output.read())
+        output.close()
 
 
-root = Tk()
-root.title("GenshinTools")
-root.geometry("800x600")
-app = GenshinApplication(root)
-
-root.mainloop()
+if __name__ == "__main__":
+    root = Tk()
+    root.title("GenshinTools")
+    root.geometry("800x600")
+    app = GenshinApplication(root)
+    root.mainloop()
