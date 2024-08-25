@@ -1,11 +1,12 @@
 from tkinter import *
-import requests, os, jsonpath
+import requests, jsonpath
 from tkinter import Text
 from tkinter import Tk
 
 url = "https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGamePackages?launcher_id=VYTpXlbWo8"
 
 
+# creat a class to get links
 class GenshinDirectLink(Frame):
     def __init__(self, master=None):
         super().__init__(master)
@@ -32,6 +33,7 @@ class GenshinDirectLink(Frame):
         self.btn01.grid(row=0, column=2)
         self.btn01["command"] = self.showlinks
 
+    # Send a GET request to get the data
     def requestlinks(self):
         self.res = requests.get(url)
         self.resdata = jsonpath.jsonpath(self.res.json(), "$..game_packages..url")
@@ -43,6 +45,7 @@ class GenshinDirectLink(Frame):
         fp.write(self.resdata)
         fp.close()
 
+    # Read the file and display it
     def showlinks(self):
         self.links = ""
         output = open("./output.txt", "w")
@@ -70,6 +73,7 @@ class GenshinDirectLink(Frame):
         self.showtext.insert("insert", output.read())
         output.close()
 
+    # When the window size changes the text box is redrawn
     def onresize(self, event=None):
         if event:
             self.showtext_width = self.master.winfo_width()
@@ -79,10 +83,11 @@ class GenshinDirectLink(Frame):
                 width=self.showtext_width,
                 height=self.showtext_height,
                 relx=0.5,
-                rely=0.6,
+                rely=0.7,
             )
 
 
+# create a mainwindow class
 class mainwindow(Tk):
     def __init__(self, master=None):
         super().__init__(master)
@@ -102,14 +107,6 @@ class mainwindow(Tk):
 
 
 if __name__ == "__main__":
-    # root = Tk()
-    # root.title("GenshinTools")
-
-    # root.geometry("800x600")
-    # root.minsize(800, 600)
-    # root.maxsize(1024, 600)
-    # print(root.winfo_width())
-    # print(root.winfo_height())
     root = mainwindow()
     app = GenshinDirectLink(root)
 
