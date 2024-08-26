@@ -26,4 +26,4 @@ The program runs on the interface.
 
 How to obtain version 5.0.
 
-![](./resources./run.png)
+![](./resources/run.png)
