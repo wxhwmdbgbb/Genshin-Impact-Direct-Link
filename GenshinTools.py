@@ -3,11 +3,15 @@ import requests, jsonpath
 from tkinter import Text
 from tkinter import Tk
 from tkinter import messagebox
+from tkinter import ttk
 
-url = "https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGamePackages?launcher_id=VYTpXlbWo8"
+# International server api
+GenshinImpacturl = "https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGamePackages?launcher_id=VYTpXlbWo8"
+# National server api
+YuanShenurl = "https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGamePackages?launcher_id=jGHBHlcOq1"
 
 
-# creat a class to get links
+# 创建一个类
 class GenshinDirectLink(Frame):
     def __init__(self, master=None):
         super().__init__(master)
@@ -18,17 +22,22 @@ class GenshinDirectLink(Frame):
     # create a ui
     def setui(self):
         # create a label
-        self.label1 = Label(self, text="游戏版本:", font=20, padx=10, pady=10)
+        self.label1 = Label(self, text="服务器选择：", font=20, padx=10, pady=10)
         self.label1.grid(row=0, column=0)
+        self.combox = ttk.Combobox(self)
+        self.combox.grid(row=0, column=1)
+        self.combox["values"] = ("国际服", "国服")
+        self.label2 = Label(self, text="游戏版本:", font=20, padx=10, pady=10)
+        self.label2.grid(row=0, column=2)
         # create a input
         self.entry1 = Entry(self, font=20)
         self.entry1.grid(
             row=0,
-            column=1,
+            column=3,
         )
         # create a button
         self.btn01 = Button(self, text="确定")
-        self.btn01.grid(row=0, column=2)
+        self.btn01.grid(row=0, column=4)
         self.btn01["command"] = self.showlinks
         # create a text box
         self.showtext = Text(self.master, autoseparators=False, exportselection=True)
@@ -40,15 +49,25 @@ class GenshinDirectLink(Frame):
 
     # Send a GET request to get the data
     def requestlinks(self):
+        self.selectvalue = self.combox.get()
+        if self.selectvalue == "国际服":
+            url = GenshinImpacturl
+        elif self.selectvalue == "国服":
+            url = YuanShenurl
+        else:
+            messagebox.showinfo("Tip", "请选择服务器！")
+            return False
         self.res = requests.get(url)
         self.resdata = jsonpath.jsonpath(self.res.json(), "$..game_packages..url")
         self.resdata = str(self.resdata).replace(",", "\n")
         self.resdata = self.resdata.replace("[", "")
         self.resdata = self.resdata.replace("]", "")
         self.resdata = self.resdata.replace("'", "")
+        # save data
         fp = open("./resdata.txt", "w")
         fp.write(self.resdata)
         fp.close()
+        return True
 
     # Read the file and display it
     def showlinks(self):
@@ -96,7 +115,7 @@ class GenshinDirectLink(Frame):
             self.showtext.clipboard_clear()
             copytext = self.showtext.get(SEL_FIRST, SEL_LAST)
             self.showtext.clipboard_append(copytext)
-            messagebox.showinfo("Tips", "复制成功！")
+            messagebox.showinfo("Tip", "复制成功！")
         except TclError:
             messagebox.showerror("Error", "没有选中内容！")
 
@@ -130,5 +149,4 @@ class mainwindow(Tk):
 if __name__ == "__main__":
     root = mainwindow()
     app = GenshinDirectLink(root)
-
     root.mainloop()
