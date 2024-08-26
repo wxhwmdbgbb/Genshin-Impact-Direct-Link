@@ -2,6 +2,7 @@ from tkinter import *
 import requests, jsonpath
 from tkinter import Text
 from tkinter import Tk
+from tkinter import messagebox
 
 url = "https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGamePackages?launcher_id=VYTpXlbWo8"
 
@@ -12,13 +13,10 @@ class GenshinDirectLink(Frame):
         super().__init__(master)
         self.master = master
         self.pack()
-        self.createWidget()
-        self.resok = False
-        self.showtext = Text(self.master, autoseparators=False, exportselection=True)
-        self.master.bind("<Configure>", self.onresize)
+        self.setui()
 
-    def createWidget(self):
-
+    # create a ui
+    def setui(self):
         # create a label
         self.label1 = Label(self, text="游戏版本:", font=20, padx=10, pady=10)
         self.label1.grid(row=0, column=0)
@@ -32,6 +30,13 @@ class GenshinDirectLink(Frame):
         self.btn01 = Button(self, text="确定")
         self.btn01.grid(row=0, column=2)
         self.btn01["command"] = self.showlinks
+        # create a text box
+        self.showtext = Text(self.master, autoseparators=False, exportselection=True)
+        self.menu = Menu(self.master, tearoff=False)
+        self.menu.add_command(label="复制", command=self.copytext)
+        self.master.bind("<Configure>", self.onresize)
+        self.showtext.bind("<Button-3>", self.showmenu)
+        self.entry1.bind("<Return>", self.pressenter)
 
     # Send a GET request to get the data
     def requestlinks(self):
@@ -83,8 +88,24 @@ class GenshinDirectLink(Frame):
                 width=self.showtext_width,
                 height=self.showtext_height,
                 relx=0.5,
-                rely=0.7,
+                rely=0.58,
             )
+
+    def copytext(self):
+        try:
+            self.showtext.clipboard_clear()
+            copytext = self.showtext.get(SEL_FIRST, SEL_LAST)
+            self.showtext.clipboard_append(copytext)
+            messagebox.showinfo("Tips", "复制成功！")
+        except TclError:
+            messagebox.showerror("Error", "没有选中内容！")
+
+    def showmenu(self, event):
+        self.menu.post(event.x_root, event.y_root)
+
+    def pressenter(self, event=None):
+        if event:
+            self.showlinks()
 
 
 # create a mainwindow class

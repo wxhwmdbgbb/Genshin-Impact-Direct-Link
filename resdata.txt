@@ -49,3 +49,24 @@ https://autopatchos.zenlesszonezero.com/package_download/op/client_app/os/downlo
  https://autopatchhk.yuanshen.com/client_app/update/hk4e_global/audio_zh-cn_4.6.0_4.8.0_hdiff_TqEURkOKyCJnpLhD.zip
  https://autopatchhk.yuanshen.com/client_app/update/hk4e_global/audio_en-us_4.6.0_4.8.0_hdiff_AFapvvrqGdvNUglt.zip
  https://autopatchhk.yuanshen.com/client_app/update/hk4e_global/audio_ja-jp_4.6.0_4.8.0_hdiff_jcwUMAzUnBmCDrEt.zip
+ https://autopatchhk.yuanshen.com/client_app/download/pc_zip/20240816185649_LtymMnnIZVQfbLZ2/GenshinImpact_5.0.0.zip.001
+ https://autopatchhk.yuanshen.com/client_app/download/pc_zip/20240816185649_LtymMnnIZVQfbLZ2/GenshinImpact_5.0.0.zip.002
+ https://autopatchhk.yuanshen.com/client_app/download/pc_zip/20240816185649_LtymMnnIZVQfbLZ2/GenshinImpact_5.0.0.zip.003
+ https://autopatchhk.yuanshen.com/client_app/download/pc_zip/20240816185649_LtymMnnIZVQfbLZ2/GenshinImpact_5.0.0.zip.004
+ https://autopatchhk.yuanshen.com/client_app/download/pc_zip/20240816185649_LtymMnnIZVQfbLZ2/GenshinImpact_5.0.0.zip.005
+ https://autopatchhk.yuanshen.com/client_app/download/pc_zip/20240816185649_LtymMnnIZVQfbLZ2/GenshinImpact_5.0.0.zip.006
+ https://autopatchhk.yuanshen.com/client_app/download/pc_zip/20240816185649_LtymMnnIZVQfbLZ2/GenshinImpact_5.0.0.zip.007
+ https://autopatchhk.yuanshen.com/client_app/download/pc_zip/20240816185649_LtymMnnIZVQfbLZ2/Audio_Chinese_5.0.0.zip
+ https://autopatchhk.yuanshen.com/client_app/download/pc_zip/20240816185649_LtymMnnIZVQfbLZ2/Audio_English(US)_5.0.0.zip
+ https://autopatchhk.yuanshen.com/client_app/download/pc_zip/20240816185649_LtymMnnIZVQfbLZ2/Audio_Korean_5.0.0.zip
+ https://autopatchhk.yuanshen.com/client_app/download/pc_zip/20240816185649_LtymMnnIZVQfbLZ2/Audio_Japanese_5.0.0.zip
+ https://autopatchhk.yuanshen.com/client_app/update/hk4e_global/game_4.8.0_5.0.0_hdiff_wZvKsUhQtnBEutrh.zip
+ https://autopatchhk.yuanshen.com/client_app/update/hk4e_global/audio_ko-kr_4.8.0_5.0.0_hdiff_gTmBNUAGPpXxrRKC.zip
+ https://autopatchhk.yuanshen.com/client_app/update/hk4e_global/audio_zh-cn_4.8.0_5.0.0_hdiff_ZZiDHvYQeHGKuFeP.zip
+ https://autopatchhk.yuanshen.com/client_app/update/hk4e_global/audio_ja-jp_4.8.0_5.0.0_hdiff_LumPhRraNOjGJMnG.zip
+ https://autopatchhk.yuanshen.com/client_app/update/hk4e_global/audio_en-us_4.8.0_5.0.0_hdiff_vsfAECOkroqoZSqK.zip
+ https://autopatchhk.yuanshen.com/client_app/update/hk4e_global/game_4.7.0_5.0.0_hdiff_yIzQMgpcGyexxigH.zip
+ https://autopatchhk.yuanshen.com/client_app/update/hk4e_global/audio_ko-kr_4.7.0_5.0.0_hdiff_jtnGBZilUVfWRxlB.zip
+ https://autopatchhk.yuanshen.com/client_app/update/hk4e_global/audio_ja-jp_4.7.0_5.0.0_hdiff_IjbPGEoMTmdwazkV.zip
+ https://autopatchhk.yuanshen.com/client_app/update/hk4e_global/audio_zh-cn_4.7.0_5.0.0_hdiff_oiHvhPpyOEfmnCRC.zip
+ https://autopatchhk.yuanshen.com/client_app/update/hk4e_global/audio_en-us_4.7.0_5.0.0_hdiff_peHdUQzpeMePNdRd.zip
