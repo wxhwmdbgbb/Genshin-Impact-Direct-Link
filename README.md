@@ -18,6 +18,12 @@ pip install requests tkinter jsonpath
  py .\GenshinTools.py
 ```
 
+# Example
+
+The program runs on the interface.
+
 ![](./resources/application.png)
 
-![](./resources./run.png)
+How to obtain version 5.0.
+
+![](./resources/run.png)
