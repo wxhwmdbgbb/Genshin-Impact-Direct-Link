@@ -11,7 +11,7 @@ GenshinImpacturl = "https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGame
 YuanShenurl = "https://hyp-api.mihoyo.com/hyp/hyp-connect/api/getGamePackages?launcher_id=jGHBHlcOq1"
 
 
-# 创建一个类
+# Create a class object
 class GenshinDirectLink(Frame):
     def __init__(self, master=None):
         super().__init__(master)
