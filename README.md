@@ -9,7 +9,7 @@ This script runs on Windows 10. You need to install the python modules.
 > Use pip to install the module
 
 ```
-pip install requests tkinter jsonpath
+pip install -r requirements.txt
 ```
 
 > Run in the terminal

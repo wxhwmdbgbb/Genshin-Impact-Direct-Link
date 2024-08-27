@@ -4,6 +4,7 @@ from tkinter import Text
 from tkinter import Tk
 from tkinter import messagebox
 from tkinter import ttk
+import os
 
 # International server api
 GenshinImpacturl = "https://sg-hyp-api.hoyoverse.com/hyp/hyp-connect/api/getGamePackages?launcher_id=VYTpXlbWo8"
@@ -96,6 +97,8 @@ class GenshinDirectLink(Frame):
         self.showtext.delete("1.0", END)
         self.showtext.insert("insert", output.read())
         output.close()
+        os.remove("./output.txt")
+        os.remove("./resdata.txt")
 
     # When the window size changes the text box is redrawn
     def onresize(self, event=None):
